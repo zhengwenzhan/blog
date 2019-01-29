@@ -61,7 +61,6 @@ https://cdn.kcaogen.com/blogShow.mp4
 使用过程请修改application.yml的qiniuyun配置和github配置
 
 
-
 # License
 
 无，纯粹开源分享，感谢大家 [Star](https://github.com/IsResultXaL/blog/stargazers "Star") & [Fork](https://github.com/IsResultXaL/blog/network/members "Fork") 的支持。
