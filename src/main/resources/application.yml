@@ -12,9 +12,9 @@ web:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${ip}:3306/caogenBlog?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-    username: root
-    password: caogen
+    url: jdbc:mysql://${ip}:3306/blog
+    username: wenzhan
+    password: 1234
   thymeleaf:
     mode: HTML
     cache: false
@@ -39,7 +39,6 @@ jedis :
   pool :
     host : ${ip}
     port : 6379
-    password : caogen
     timeout : 60000
     config :
       maxTotal: 100
