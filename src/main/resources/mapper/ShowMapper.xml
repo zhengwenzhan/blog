@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.caogen.blog.dao.ShowMapperDao">
+<mapper namespace="com.wenzhan.blog.dao.ShowMapperDao">
 
 	<select id="findAllCity" resultType="java.util.HashMap">
 	 	/*select @rownum:=@rownum+1 rownum,codes,visitors,percentage,cityName,id from

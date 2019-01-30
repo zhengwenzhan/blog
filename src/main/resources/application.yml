@@ -5,8 +5,8 @@ server:
   context-path: /
 
 web:
-  upload-path : /home/caogen/project/blog/blogImg/
-  load-path : /home/caogen/project/blog
+  upload-path : /Users/zhengwenzhan/Downloads
+  load-path : /Users/zhengwenzhan/Downloads
   blogImg-path : /blogImg/
 
 spring:
@@ -26,14 +26,11 @@ spring:
     multipart:
       max-file-size: 5MB
       max-request-size: 100MB
-  data:
-    solr:
-      host: http://${ip}:8983/solr/caogen_core
 
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.caogen.blog.entity
+  type-aliases-package: com.wenzhan.blog.entity
 
 jedis :
   pool :
@@ -46,10 +43,10 @@ jedis :
       maxWaitMillis : 100000
 
 qiniuyun :
-  AK :
-  SK :
+  AK : 1980WcwMhP4B0OO2WfYKpfXcPRHXoHw27ZMgGK4e
+  SK : s91HnJ7w_kngsXRA-gsLFnDMQfcnr4OnGp_wcC6o
   bucket : blog
-  url : https://cdn.kcaogen.com/
+  url : 127.0.0.1
 
 github:
   GithubID :

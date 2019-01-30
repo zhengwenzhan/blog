@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.caogen.blog.dao.AdminBlogDao">
+<mapper namespace="com.wenzhan.blog.dao.AdminBlogDao">
 
     <sql id="blogListCondition">
         <if test="name != null and name != ''">
@@ -23,7 +23,7 @@
     </select>
 
     <insert id="insertBlog" useGeneratedKeys="true" keyProperty="blogId"
-            parameterType="com.caogen.blog.entity.Blog">
+            parameterType="com.wenzhan.blog.entity.Blog">
         INSERT INTO k_blog
         (blogName, introduction, content,
         blogType, browse, praise, reprintedUrl)

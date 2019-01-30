@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.caogen.blog.dao.BlogDao">
+<mapper namespace="com.wenzhan.blog.dao.BlogDao">
 
-	<select id="getAllBlog" resultType="com.caogen.blog.entity.Blog">
+	<select id="getAllBlog" resultType="com.wenzhan.blog.entity.Blog">
 		SELECT * FROM k_blog
 	</select>
 
-	<select id="getAllBlogType" resultType="com.caogen.blog.entity.Type">
+	<select id="getAllBlogType" resultType="com.wenzhan.blog.entity.Type">
 		SELECT * FROM k_type
 	</select>
 
-	<select id="getAllBlogTag" resultType="com.caogen.blog.entity.Tag">
+	<select id="getAllBlogTag" resultType="com.wenzhan.blog.entity.Tag">
 		SELECT * FROM k_tag
 	</select>
 
-	<select id="getBlogInfoById" resultType="com.caogen.blog.entity.Blog" parameterType="int">
+	<select id="getBlogInfoById" resultType="com.wenzhan.blog.entity.Blog" parameterType="int">
 		SELECT * FROM k_blog WHERE blogId = #{blogId}
 	</select>
 	
@@ -34,7 +34,7 @@
 		ORDER BY blogId DESC
 	</select>
 	
-	<select id="getNewBlog" resultType="com.caogen.blog.entity.Blog">
+	<select id="getNewBlog" resultType="com.wenzhan.blog.entity.Blog">
 		SELECT blogId, blogName from k_blog ORDER BY blogId DESC LIMIT  5
 	</select>
 

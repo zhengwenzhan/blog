@@ -39,7 +39,6 @@
                 <th>名称</th>
                 <th>类型</th>
                 <th>访问量</th>
-                <th>图片</th>
                 <th>时间</th>
                 <th>操作</th>
             </tr>
@@ -50,14 +49,10 @@
                 <td th:text="${blog.blogName}">Java历史</td>
                 <td th:text="${blog.blogType}">Java</td>
                 <td th:text="${blog.browse}">1000</td>
-                <td><img style="width: 300px;height: 100px;" th:src="${blog.blogImg}"></td>
                 <td th:text="${#dates.format(blog.time, 'yyyy-MM-dd HH:mm:ss')}">2017-08-04</td>
                 <td th:attr="blogId=${blog.blogId},blogType=${blog.blogType}">
                     <button class="btn-primary updateBlog">修改</button>
                     <button class="btn-danger delBlog">删除</button>
-                    <button type="button" class="btn-info" data-toggle="modal" data-target="#exampleModal">
-                        图片
-                    </button>
                 </td>
             </tr>
             </tbody>

@@ -28,7 +28,7 @@ create table k_tag(
 create table k_blog_tag(
 	id INT PRIMARY KEY NOT NULL auto_increment,
 	blogId INT COMMENT '博客ID',
-	tagId	INT COMMENT '博客标签ID'
+	tagId INT COMMENT '博客标签ID'
 );
 
 -- 创建城市访问量表
@@ -36,7 +36,7 @@ create table k_city(
 	id INT PRIMARY KEY NOT NULL auto_increment,
 	cityName VARCHAR(100) COMMENT '城市',
 	codes VARCHAR(100) COMMENT '城市简称',
-	visitors	INT COMMENT '访问量'
+	visitors INT COMMENT '访问量'
 );
 
 -- 创建用户表
