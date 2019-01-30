@@ -5,29 +5,29 @@
 <mapper namespace="com.wenzhan.blog.dao.BlogDao">
 
 	<select id="getAllBlog" resultType="com.wenzhan.blog.entity.Blog">
-		SELECT * FROM k_blog
+		SELECT * FROM blog
 	</select>
 
 	<select id="getAllBlogType" resultType="com.wenzhan.blog.entity.Type">
-		SELECT * FROM k_type
+		SELECT * FROM type
 	</select>
 
 	<select id="getAllBlogTag" resultType="com.wenzhan.blog.entity.Tag">
-		SELECT * FROM k_tag
+		SELECT * FROM tag
 	</select>
 
 	<select id="getBlogInfoById" resultType="com.wenzhan.blog.entity.Blog" parameterType="int">
-		SELECT * FROM k_blog WHERE blogId = #{blogId}
+		SELECT * FROM blog WHERE blogId = #{blogId}
 	</select>
 	
 	<select id="getTagListById" resultType="String" parameterType="int">
-		SELECT tagName FROM k_tag kb
-		INNER JOIN k_blog_tag kbt ON kb.tagId = kbt.tagId
+		SELECT tagName FROM tag kb
+		INNER JOIN blog_tag kbt ON kb.tagId = kbt.tagId
 		WHERE blogId = #{blogId}
 	</select>
 	
 	<select id="getAllBlogId" resultType="String" parameterType="String">
-		SELECT blogId from k_blog 
+		SELECT blogId from blog
 		<if test="_parameter != null and _parameter !=''">
 			WHERE blogType = #{blogType}
 		</if>
@@ -35,12 +35,12 @@
 	</select>
 	
 	<select id="getNewBlog" resultType="com.wenzhan.blog.entity.Blog">
-		SELECT blogId, blogName from k_blog ORDER BY blogId DESC LIMIT  5
+		SELECT blogId, blogName from blog ORDER BY blogId DESC LIMIT  5
 	</select>
 
 	<update id="updateBlogNum" parameterType="java.util.List">
 		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
-			UPDATE k_blog
+			UPDATE blog
 			<set>
 			  browse = #{item.browse}
 			</set>
@@ -49,8 +49,8 @@
 	</update>
 	
 	<select id="getTagList" resultType="java.util.HashMap">
-		SELECT tagName, blogId FROM k_tag kb
-		INNER JOIN k_blog_tag kbt ON kb.tagId = kbt.tagId
+		SELECT tagName, blogId FROM tag kb
+		INNER JOIN blog_tag kbt ON kb.tagId = kbt.tagId
 	</select>
 </mapper>
  

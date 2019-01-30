@@ -5,9 +5,9 @@
 <mapper namespace="com.wenzhan.blog.dao.UserDao">
 
     <select id="getUserByUsername" resultType="UserRole">
-        SELECT u.id,u.userName,u.password,r.role FROM k_user u
-        INNER JOIN k_user_role ur ON ur.userId = u.id
-        INNER JOIN k_role r on r.id = ur.roleId
+        SELECT u.id,u.userName,u.password,r.role FROM user u
+        INNER JOIN user_role ur ON ur.userId = u.id
+        INNER JOIN role r on r.id = ur.roleId
         WHERE u.userName = #{userName}
     </select>
 

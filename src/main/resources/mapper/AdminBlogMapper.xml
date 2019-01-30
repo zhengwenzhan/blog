@@ -11,20 +11,20 @@
     </sql>
 
     <select id="getBlogCount" resultType="java.lang.Long">
-        SELECT COUNT(1) FROM k_blog
+        SELECT COUNT(1) FROM blog
         <include refid="blogListCondition"/>
     </select>
 
     <!-- 小数据查询方式 -->
     <select id="getBlog" resultType="Blog">
-        SELECT * FROM k_blog
+        SELECT * FROM blog
         <include refid="blogListCondition"/>
         ORDER BY blogId DESC LIMIT #{offset}, #{pageSize}
     </select>
 
     <insert id="insertBlog" useGeneratedKeys="true" keyProperty="blogId"
             parameterType="com.wenzhan.blog.entity.Blog">
-        INSERT INTO k_blog
+        INSERT INTO blog
         (blogName, introduction, content,
         blogType, browse, praise, reprintedUrl)
         VALUES
@@ -33,7 +33,7 @@
     </insert>
 
     <insert id="insertBlogTagByBlogId" parameterType="java.util.List">
-        INSERT INTO k_blog_tag(blogId, tagId)
+        INSERT INTO blog_tag(blogId, tagId)
         VALUES
         <foreach collection="list" item="item" index="index"
                  separator=",">
@@ -42,59 +42,59 @@
     </insert>
 
     <delete id="delBlog">
-        DELETE FROM  k_blog WHERE blogId = #{blogId}
+        DELETE FROM  blog WHERE blogId = #{blogId}
     </delete>
 
     <delete id="delBlogTag">
-        DELETE FROM  k_blog_tag WHERE blogId = #{blogId}
+        DELETE FROM  blog_tag WHERE blogId = #{blogId}
     </delete>
 
     <select id="getBlogById" resultType="Blog">
-        SELECT * FROM k_blog WHERE blogId = #{blogId}
+        SELECT * FROM blog WHERE blogId = #{blogId}
     </select>
 
     <select id="getBlogTagById" resultType="Tag">
-        SELECT kbt.tagId, kb.tagName  FROM k_blog_tag kbt
-        INNER JOIN k_tag kb ON kbt.tagId = kb.tagId
+        SELECT kbt.tagId, kb.tagName  FROM blog_tag kbt
+        INNER JOIN tag kb ON kbt.tagId = kb.tagId
         WHERE kbt.blogId = #{blogId}
     </select>
 
     <update id="updateBlog">
-        UPDATE k_blog SET blogName = #{blogName}, introduction = #{introduction},
+        UPDATE blog SET blogName = #{blogName}, introduction = #{introduction},
         content = #{content}, blogType = #{blogType} , reprintedUrl = #{reprintedUrl}
         WHERE blogId = #{blogId}
     </update>
 
     <select id="getBlogTypeCount" resultType="java.lang.Long">
-        SELECT COUNT(1) FROM k_type
+        SELECT COUNT(1) FROM type
     </select>
 
     <!-- 小数据查询方式 -->
     <select id="getBlogType" resultType="Type">
-        SELECT * FROM k_type
+        SELECT * FROM type
         ORDER BY typeId DESC LIMIT #{offset}, #{pageSize}
     </select>
 
     <insert id="insertBlogType">
-        INSERT INTO k_type(typeName) VALUES (#{typeName})
+        INSERT INTO type(typeName) VALUES (#{typeName})
     </insert>
 
     <select id="getBlogTagCount" resultType="java.lang.Long">
-        SELECT COUNT(1) FROM k_tag
+        SELECT COUNT(1) FROM tag
     </select>
 
     <!-- 小数据查询方式 -->
     <select id="getBlogTag" resultType="Tag">
-        SELECT * FROM k_tag
+        SELECT * FROM tag
         ORDER BY tagId DESC LIMIT #{offset}, #{pageSize}
     </select>
 
     <insert id="insertBlogTag">
-        INSERT INTO k_tag(tagName) VALUES (#{tagName})
+        INSERT INTO tag(tagName) VALUES (#{tagName})
     </insert>
 
     <update id="updateBlogImg">
-        UPDATE k_blog SET blogImg = #{blogImg} WHERE blogId = #{blogId}
+        UPDATE blog SET blogImg = #{blogImg} WHERE blogId = #{blogId}
     </update>
 
 </mapper>
